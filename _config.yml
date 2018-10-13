@@ -1,7 +1,7 @@
 # main settings
 title:            Minicomp/Wax
 description:      a jekyll theme for minimal exhibitions
-url:              '' # the url should stay empty
+url:              'https://minicomp.github.io' # the url should stay empty
 baseurl:          '/wax' # the baseurl of your site must be defined but can be an empty ''
 
 # build settings
@@ -11,9 +11,6 @@ safe:             true
 
 # wax collection settings
 collections:
-  pages:
-    output:
-      true
   qatar:
     output: true
     source: qatar.csv
@@ -22,25 +19,35 @@ collections:
       content: false
       fields: [pid, title, artist, location, _date, object_type, current_location]
     iiif:
-      meta:
-        label: title
+      is_document: false
+      sort: false
+  book-of-horses:
+    output: true
+    iiif:
+      is_document: true
+      sort: true
+
 
 # menu settings
 menu:
   - label: About
     sub:
-    - label: Wax
-      link: /about/
-    - label: Minicomp
-      link: /minicomp/
-    - label: Credits
-      link: /credits/
-  - label: Documentation
-    link: https://minicomp.github.io/wiki/#/wax/
+      - label: Wax
+        link: /about/
+      - label: Wiki Documentation
+        link: 'https://minicomp.github.io/wiki/#/wax/'
+      - label: Credits
+        link: /credits
+  - label: Components
+    link: /components/
+  - label: Tasks
+    link: /tasks/
   - label: Exhibits
     link: /exhibits/
-  - label: Gallery
-    link: /gallery/
+  - label: Browse
+    link: /collection/
+  - label: Search
+    link: /search/
 
 # search tests. run with $ bundle exec rspec
 quoll:

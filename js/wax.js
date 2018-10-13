@@ -1,3 +1,7 @@
+---
+layout: none
+---
+
 // banner
 
 function resizeWaxBanner() {
@@ -26,51 +30,111 @@ setInterval(nextSlide, 3000);
 // metadata table
 
 function resizeMetaBox() {
-  if ( $( "#leaflet-iiif" ).length ) {
-    var viewerWidth = $('#leaflet-iiif').width();
+  if ( $( "#leaflet-iiif-viewer" ).length ) {
+    var viewerWidth = $('#leaflet-iiif-viewer').width();
+    var metaBox = $('#metadata-block');
+    metaBox.width(viewerWidth);
+  }
+  if ( $( "#mirador-iiif-viewer" ).length ) {
+    var viewerWidth = $('#mirador-iiif-viewer').width();
     var metaBox = $('#metadata-block');
     metaBox.width(viewerWidth);
   }
 }
 
-/// iiif viewer
+/// iiif viewers
 
-function loadIIIFViewer(manifest_uri) {
-  if ( $( "#leaflet-iiif" ).length ) {
-    var leaflet_iiif;
+function leafletImageViewer(image_uri) {
+  if ( $( "#leaflet-iiif-viewer" ).length ) {
+    var leaflet_viewer = L.map('leaflet-iiif-viewer', {
+      center: [0, 0],
+      crs: L.CRS.Simple,
+      zoomDelta: 0.5,
+      zoomSnap: 0,
+      zoom: 0
+    });
+    L.tileLayer.iiif(image_uri).addTo(leaflet_iiif);
+  }
+}
+
+function leafletManifestViewer(manifest_uri) {
+  if ( $( "#leaflet-iiif-viewer" ).length ) {
     var iiifLayers = {};
-    var manifestUrl = manifest_uri;
-    leaflet_iiif = L.map('leaflet-iiif', {
+    var leaflet_viewer = L.map('leaflet-iiif-viewer', {
       center: [0, 0],
       crs: L.CRS.Simple,
       zoomSnap: 0,
       zoom: 0
     });
-    $.getJSON(manifestUrl, function(data) {
+    $.getJSON(manifest_uri, function(data) {
       var i = 1;
       $.each(data.sequences[0].canvases, function(_, val) {
         var label = 'image ' + i;
         iiifLayers[label] = L.tileLayer.iiif(val.images[0].resource.service['@id'] + '/info.json', {fitBounds: true});
         i++;
       });
-      if (i > 2){ L.control.layers(iiifLayers).addTo(leaflet_iiif);}
-      iiifLayers[Object.keys(iiifLayers)[0]].addTo(leaflet_iiif);
+      if (i > 2){ L.control.layers(iiifLayers).addTo(leaflet_viewer);}
+      iiifLayers[Object.keys(iiifLayers)[0]].addTo(leaflet_viewer);
     });
   }
 }
 
-// on load
-
-resizeMetaBox();
-resizeWaxBanner();
-
-if (typeof(manifest) != "undefined"){
-  loadIIIFViewer(manifest);
+function miradorManifestViewer(manifest_uri) {
+  Mirador({
+    id: 'mirador-iiif-viewer',
+    data: [
+      { "collectionUri": "{{ '/iiif/collection/top.json' | absolute_url }}" }
+    ],
+    windowObjects: [{
+      loadedManifest: manifest_uri,
+      viewType: "ScrollView"
+    }]
+  });
 }
 
-// on resize
+function miradorComparisonViewer(m1, m2) {
+  console.log('here');
+  Mirador({
+    id: "mirador-iiif-viewer",
+    layout: "1x2",
+    data: [
+      { "collectionUri": "{{ '/iiif/collection/top.json' | absolute_url }}" },
+      { "manifestUri": m1 },
+      { "manifestUri": m2 }
+    ],
+    windowObjects: [{
+      loadedManifest: m1,
+      slotAddress: "row1.column1",
+      viewType: "ImageView",
+      displayLayout: false,
+      bottomPanel: false,
+      bottomPanelAvailable: false,
+      bottomPanelVisible: false,
+      sidePanel: false,
+      annotationLayer: false
+    },
+    {
+      loadedManifest: m2,
+      slotAddress: "row1.column2",
+      viewType: "ImageView",
+      displayLayout: false,
+      bottomPanel: false,
+      bottomPanelAvailable: false,
+      bottomPanelVisible: false,
+      sidePanel: false,
+      annotationLayer: false
+    }]
+  });
+}
 
+// on load
+$( document ).ready(function() {
+  resizeMetaBox();
+  resizeWaxBanner();
+});
+
+// on resize
 $(window).on('resize', function(){
   resizeMetaBox();
   resizeWaxBanner();
-})
+});
