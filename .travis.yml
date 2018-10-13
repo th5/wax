@@ -8,6 +8,7 @@ git:
   depth: 1
 branches:
   except:
+    - gh-pages
     - static
 before_script:
   - bundle exec rake wax:lunr
