@@ -1,0 +1,19 @@
+{
+  "@type": "oa:Annotation",
+  "@id": "https://minicomp.github.io/wax/iiif/qatar/annotation/obj2.json",
+  "motivation": "sc:painting",
+  "resource": {
+    "@id": "https://minicomp.github.io/wax/iiif/images/qatar/obj2/full/full/0/default.jpg",
+    "@type": "dcterms:Image",
+    "format": "image/jpeg",
+    "service": {
+      "@context": "http://iiif.io/api/image/2/context.json",
+      "@id": "https://minicomp.github.io/wax/iiif/images/qatar/obj2",
+      "profile": "http://iiif.io/api/image/2/level0.json"
+    },
+    "width": 5080,
+    "height": 3532
+  },
+  "on": "https://minicomp.github.io/wax/iiif/qatar/canvas/obj2.json",
+  "@context": "http://iiif.io/api/presentation/2/context.json"
+}

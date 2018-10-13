@@ -1,0 +1,29 @@
+{
+  "@type": "sc:Canvas",
+  "@id": "https://minicomp.github.io/wax/iiif/book-of-horses/canvas/24.json",
+  "label": "24",
+  "width": 5333,
+  "height": 7500,
+  "thumbnail": "https://minicomp.github.io/wax/iiif/images/book-of-horses/24/full/250,/0/default.jpg",
+  "images": [
+    {
+      "@type": "oa:Annotation",
+      "@id": "https://minicomp.github.io/wax/iiif/book-of-horses/annotation/24.json",
+      "motivation": "sc:painting",
+      "resource": {
+        "@id": "https://minicomp.github.io/wax/iiif/images/book-of-horses/24/full/full/0/default.jpg",
+        "@type": "dcterms:Image",
+        "format": "image/jpeg",
+        "service": {
+          "@context": "http://iiif.io/api/image/2/context.json",
+          "@id": "https://minicomp.github.io/wax/iiif/images/book-of-horses/24",
+          "profile": "http://iiif.io/api/image/2/level0.json"
+        },
+        "width": 5333,
+        "height": 7500
+      },
+      "on": "https://minicomp.github.io/wax/iiif/book-of-horses/canvas/24.json"
+    }
+  ],
+  "@context": "http://iiif.io/api/presentation/2/context.json"
+}

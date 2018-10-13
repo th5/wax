@@ -1,0 +1,45 @@
+{
+  "@context": "http://iiif.io/api/presentation/2/context.json",
+  "@id": "https://minicomp.github.io/wax/iiif/qatar/obj2/manifest.json",
+  "@type": "sc:Manifest",
+  "label": "obj2",
+  "thumbnail": "https://minicomp.github.io/wax/iiif/images/qatar/obj2/full/250,/0/default.jpg",
+  "viewingDirection": "left-to-right",
+  "viewingHint": "individuals",
+  "sequences": [
+    {
+      "@id": "https://minicomp.github.io/wax/iiif/qatar/sequence/obj2.json",
+      "@type": "sc:Sequence",
+      "canvases": [
+        {
+          "@type": "sc:Canvas",
+          "@id": "https://minicomp.github.io/wax/iiif/qatar/canvas/obj2.json",
+          "label": "obj2",
+          "width": 5080,
+          "height": 3532,
+          "thumbnail": "https://minicomp.github.io/wax/iiif/images/qatar/obj2/full/250,/0/default.jpg",
+          "images": [
+            {
+              "@type": "oa:Annotation",
+              "@id": "https://minicomp.github.io/wax/iiif/qatar/annotation/obj2.json",
+              "motivation": "sc:painting",
+              "resource": {
+                "@id": "https://minicomp.github.io/wax/iiif/images/qatar/obj2/full/full/0/default.jpg",
+                "@type": "dcterms:Image",
+                "format": "image/jpeg",
+                "service": {
+                  "@context": "http://iiif.io/api/image/2/context.json",
+                  "@id": "https://minicomp.github.io/wax/iiif/images/qatar/obj2",
+                  "profile": "http://iiif.io/api/image/2/level0.json"
+                },
+                "width": 5080,
+                "height": 3532
+              },
+              "on": "https://minicomp.github.io/wax/iiif/qatar/canvas/obj2.json"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

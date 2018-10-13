@@ -1,0 +1,29 @@
+{
+  "@type": "sc:Canvas",
+  "@id": "https://minicomp.github.io/wax/iiif/qatar/canvas/obj7.json",
+  "label": "obj7",
+  "width": 3927,
+  "height": 5810,
+  "thumbnail": "https://minicomp.github.io/wax/iiif/images/qatar/obj7/full/250,/0/default.jpg",
+  "images": [
+    {
+      "@type": "oa:Annotation",
+      "@id": "https://minicomp.github.io/wax/iiif/qatar/annotation/obj7.json",
+      "motivation": "sc:painting",
+      "resource": {
+        "@id": "https://minicomp.github.io/wax/iiif/images/qatar/obj7/full/full/0/default.jpg",
+        "@type": "dcterms:Image",
+        "format": "image/jpeg",
+        "service": {
+          "@context": "http://iiif.io/api/image/2/context.json",
+          "@id": "https://minicomp.github.io/wax/iiif/images/qatar/obj7",
+          "profile": "http://iiif.io/api/image/2/level0.json"
+        },
+        "width": 3927,
+        "height": 5810
+      },
+      "on": "https://minicomp.github.io/wax/iiif/qatar/canvas/obj7.json"
+    }
+  ],
+  "@context": "http://iiif.io/api/presentation/2/context.json"
+}

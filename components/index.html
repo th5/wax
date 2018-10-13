@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+  <!-- Canonical link to help search engines -->
+  <link rel="canonical" href="/wax/components/"/>
+  <link rel="icon" type="image/png" href="https://minicomp.github.io/wax/assets/logo.png">
+
+  <!-- Basic meta elements -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1"/>
+
+  <title>
+    
+      Components
+    
+  </title>
+
+  <!-- styles -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://minicomp.github.io/wax/assets/wax.css"/>
+  <!-- bootstrap -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <!-- jquery --->
+  <script type="text/jscript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <!-- wax js -->
+  <script type="text/javascript" src="https://minicomp.github.io/wax/js/wax.js"></script>
+</head>
+
+  <body>
+    <time datetime="2018-10-13 17:22"></time>
+
+    <div class="container-fluid" id="header-block">
+  <div class="container">
+    <nav class="navbar navbar-light navbar-expand-md bg-faded justify-content-center nopadding">
+      <span id="title">
+        <a href="/wax/" class="navbar-brand d-flex w-50 mr-auto" title="Home">
+          <span class="icon baseline logo"></span>
+          Minicomp/Wax
+        </a>
+      </span>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsingNavbar3">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="navbar-collapse collapse w-100" id="collapsingNavbar3">
+
+        <ul class="nav navbar-nav ml-auto w-100 justify-content-end">
+          
+            
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                About&nbsp;&nbsp;&nbsp;/
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                
+                <a class="dropdown-item" href="/wax/about/">Wax</a>
+                
+                <a class="dropdown-item" href="https://minicomp.github.io/wiki/#/wax/">Wiki Documentation</a>
+                
+                <a class="dropdown-item" href="/wax/credits">Credits</a>
+                
+              </div>
+            </li>
+            
+          
+            
+            <li class="nav-item">
+              <a class="nav-link" href="/wax/components/">Components&nbsp;&nbsp;&nbsp;/</a>
+            </li>
+            
+          
+            
+            <li class="nav-item">
+              <a class="nav-link" href="/wax/tasks/">Tasks&nbsp;&nbsp;&nbsp;/</a>
+            </li>
+            
+          
+            
+            <li class="nav-item">
+              <a class="nav-link" href="/wax/exhibits/">Exhibits&nbsp;&nbsp;&nbsp;/</a>
+            </li>
+            
+          
+            
+            <li class="nav-item">
+              <a class="nav-link" href="/wax/collection/">Browse&nbsp;&nbsp;&nbsp;/</a>
+            </li>
+            
+          
+            
+            <li class="nav-item">
+              <a class="nav-link" href="/wax/search/">Search</a>
+            </li>
+            
+          
+        </ul>
+      </div>
+    </nav>
+  </div>
+</div>
+<div id="header-spacer"></div>
+
+
+    <div class="container" id="main">
+      
+        
+      
+
+      <h1 id="components">Components</h1>
+
+<p>With Jekyll, site components are called <strong>includes</strong> and live in the <code class="highlighter-rouge">_includes</code> directory. You can add them to single pages or to page layouts with the Liquid <code class="highlighter-rouge">{% include %}</code> tag.</p>
+
+<p>So far, <strong>Wax</strong> has the following reusable components: <strong>banner</strong>, <strong>gallery</strong>, <strong>search</strong>, <strong>Leaflet IIIF viewer</strong>, and <strong>Mirador IIIF viewer</strong>.</p>
+
+<h2 id="banner">Banner</h2>
+
+<p>The banner include takes information from the page’s front matter, like so:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">banner</span><span class="pi">:</span>
+<span class="pi">-</span> <span class="na">collection</span><span class="pi">:</span> <span class="s">qatar</span>
+  <span class="na">pid</span><span class="pi">:</span> <span class="s">obj6</span>
+  <span class="na">y</span><span class="pi">:</span> <span class="s">center</span>
+  <span class="na">x</span><span class="pi">:</span> <span class="s">left</span>
+  <span class="na">zoom</span><span class="pi">:</span> <span class="s">1</span>
+<span class="pi">-</span> <span class="na">collection</span><span class="pi">:</span> <span class="s">qatar</span>
+  <span class="na">pid</span><span class="pi">:</span> <span class="s">obj10</span>
+  <span class="na">zoom</span><span class="pi">:</span> <span class="s">1</span>
+  <span class="na">x</span><span class="pi">:</span> <span class="s">right</span>
+<span class="pi">-</span> <span class="na">collection</span><span class="pi">:</span> <span class="s">book-of-horses</span>
+  <span class="na">pid</span><span class="pi">:</span> <span class="s1">'</span><span class="s">00'</span>
+  <span class="na">zoom</span><span class="pi">:</span> <span class="s">0</span>
+  <span class="na">y</span><span class="pi">:</span> <span class="s">center</span>
+  <span class="na">x</span><span class="pi">:</span> <span class="s">right</span>
+  <span class="na">link</span><span class="pi">:</span> <span class="s1">'</span><span class="s">/book-of-horses/'</span>
+</code></pre></div></div>
+
+<p>and then called with and <code class="highlighter-rouge">include</code> tag:</p>
+
+<p><code class="highlighter-rouge">{% include banner.html %}</code></p>
+
+<p><strong>Result:</strong></p>
+
+<div id="wax-banner">
+  
+  
+  
+
+      <div class="banner-item">
+        
+        <a href="https://minicomp.github.io/wax/qatar/obj6/">
+          <div class="banner-img">
+              <img src="/wax/iiif/images/qatar/obj6/full/1140,/0/default.jpg" style="transform: 
+         scale(1.5,1.5)
+        
+         translateX(5%)
+        
+         translateY(-35%)
+        
+      ;" />
+          </div>
+        </a>
+      </div>
+
+    
+  
+
+      <div class="banner-item">
+        
+        <a href="https://minicomp.github.io/wax/qatar/obj10/">
+          <div class="banner-img">
+              <img src="/wax/iiif/images/qatar/obj10/full/1140,/0/default.jpg" style="transform: 
+         scale(1.5,1.5)
+        
+         translateX(-5%)
+        
+         translateY(-5%)
+        
+      ;" />
+          </div>
+        </a>
+      </div>
+
+    
+  
+
+      <div class="banner-item">
+        
+        <a href="https://minicomp.github.io/wax/book-of-horses/">
+          <div class="banner-img">
+              <img src="/wax/iiif/images/book-of-horses/00/full/1140,/0/default.jpg" style="transform: 
+         scale(1.1, 1.1)
+        
+         translateX(-5%)
+        
+         translateY(-35%)
+        
+      ;" />
+          </div>
+        </a>
+      </div>
+
+    
+  
+</div>
+
+<p>In the above example, the banner grabs images from the IIIF directory for <code class="highlighter-rouge">obj6</code> and <code class="highlighter-rouge">obj10</code> of the <code class="highlighter-rouge">qatar</code> collection and the first image (<code class="highlighter-rouge">00</code>) from the <code class="highlighter-rouge">book-of-horses</code> manuscript. The fields <code class="highlighter-rouge">collection</code> and <code class="highlighter-rouge">pid</code> are required, and <code class="highlighter-rouge">x</code>, <code class="highlighter-rouge">y</code>, <code class="highlighter-rouge">zoom</code>, and <code class="highlighter-rouge">link</code> are optional overrides.</p>
+
+<table class="table table-striped">
+  <tr class="meta">
+    <td><b>x</b> :</td>
+    <td>positions the image horizontally. The options are <b>left</b>, <b>right</b>, and <b>center</b> with <b>center</b> as default.</td>
+  </tr>
+  <tr class="meta">
+    <td><b>y</b> :</td>
+    <td>positions the image vertically. The options are <b>top</b>, <b>bottom</b>, and <b>center</b> with <b>top</b> as the default.</td>
+  </tr>
+  <tr class="meta">
+    <td><b>zoom</b> :</td>
+    <td>sets the amount of zoom on the image. The options are <b>0</b>, <b>1</b>, and <b>2</b> with <b>0</b> as the default.</td>
+  </tr>
+  <tr class="meta">
+    <td><b>link</b> :</td>
+    <td>sets the target link for clicking on the image. The banner will try to construct it from <b>collection</b> and <b>pid</b> by default if <b>link</b> isn't set.</td>
+  </tr>
+</table>
+
+<p>If one item image is given, the banner is still. If multiple are given, there will be a fade effect. <strong>Note:</strong> two images breaks the effect. The banner should have either one image or three or more loaded.</p>
+
+<h2 id="gallery">Gallery</h2>
+
+<p>The gallery include shows a set of image thumbnails from the IIIF directory and object titles for each item in a collection. These can optionally be  can be faceted by a metadata key, for example:</p>
+
+<p><code class="highlighter-rouge">{% include gallery.html collection='qatar' facet_by='artist' %}</code></p>
+
+<p><strong>Result</strong>:</p>
+
+<div id="wax-gallery-qatar" class="wax-gallery"></div>
+
+<script type="text/javascript">
+  // create items
+  var container = $('#wax-gallery-qatar');
+  container.prepend("<div id='qatar-gallery' class='gallery-container'></div>");
+  var gallery = $('#qatar-gallery');
+  
+    gallery.append("<div class='gallery-item qatar-al-hajj-hafiz-muhammad-nuri qatar-all'><a href='https://minicomp.github.io/wax/qatar/obj1/'><div class='hovereffect'><img class='img-responsive gallery-thumb' src='/wax/iiif/images/qatar/obj1/full/250,/0/default.jpg'><div class='overlay'><p class='info'>The Dala'il al-Khayrat of al-Juzuli</p></div></div></a></div>");
+  
+    gallery.append("<div class='gallery-item qatar-unknown qatar-all'><a href='https://minicomp.github.io/wax/qatar/obj10/'><div class='hovereffect'><img class='img-responsive gallery-thumb' src='/wax/iiif/images/qatar/obj10/full/250,/0/default.jpg'><div class='overlay'><p class='info'>Portrait of Hasan 'Ali Mirza Shuja al-Saltana</p></div></div></a></div>");
+  
+    gallery.append("<div class='gallery-item qatar-unknown qatar-all'><a href='https://minicomp.github.io/wax/qatar/obj11/'><div class='hovereffect'><img class='img-responsive gallery-thumb' src='/wax/iiif/images/qatar/obj11/full/250,/0/default.jpg'><div class='overlay'><p class='info'>Portrait of Sheikh Ali Mirza</p></div></div></a></div>");
+  
+    gallery.append("<div class='gallery-item qatar-unknown qatar-all'><a href='https://minicomp.github.io/wax/qatar/obj2/'><div class='hovereffect'><img class='img-responsive gallery-thumb' src='/wax/iiif/images/qatar/obj2/full/250,/0/default.jpg'><div class='overlay'><p class='info'>Sulwan Al-Muta'a</p></div></div></a></div>");
+  
+    gallery.append("<div class='gallery-item qatar-unknown qatar-all'><a href='https://minicomp.github.io/wax/qatar/obj3/'><div class='hovereffect'><img class='img-responsive gallery-thumb' src='/wax/iiif/images/qatar/obj3/full/250,/0/default.jpg'><div class='overlay'><p class='info'>Map of the World</p></div></div></a></div>");
+  
+    gallery.append("<div class='gallery-item qatar-unknown qatar-all'><a href='https://minicomp.github.io/wax/qatar/obj4/'><div class='hovereffect'><img class='img-responsive gallery-thumb' src='/wax/iiif/images/qatar/obj4/full/250,/0/default.jpg'><div class='overlay'><p class='info'>Faridun crosses the River Dijla, fol. 33v</p></div></div></a></div>");
+  
+    gallery.append("<div class='gallery-item qatar-unknown qatar-all'><a href='https://minicomp.github.io/wax/qatar/obj5/'><div class='hovereffect'><img class='img-responsive gallery-thumb' src='/wax/iiif/images/qatar/obj5/full/250,/0/default.jpg'><div class='overlay'><p class='info'>Panel from Iran</p></div></div></a></div>");
+  
+    gallery.append("<div class='gallery-item qatar-unknown qatar-all'><a href='https://minicomp.github.io/wax/qatar/obj6/'><div class='hovereffect'><img class='img-responsive gallery-thumb' src='/wax/iiif/images/qatar/obj6/full/250,/0/default.jpg'><div class='overlay'><p class='info'>Diwan of Jami Manuscript</p></div></div></a></div>");
+  
+    gallery.append("<div class='gallery-item qatar-unknown qatar-all'><a href='https://minicomp.github.io/wax/qatar/obj7/'><div class='hovereffect'><img class='img-responsive gallery-thumb' src='/wax/iiif/images/qatar/obj7/full/250,/0/default.jpg'><div class='overlay'><p class='info'>Page from the Shahnama</p></div></div></a></div>");
+  
+    gallery.append("<div class='gallery-item qatar-unknown qatar-all'><a href='https://minicomp.github.io/wax/qatar/obj8/'><div class='hovereffect'><img class='img-responsive gallery-thumb' src='/wax/iiif/images/qatar/obj8/full/250,/0/default.jpg'><div class='overlay'><p class='info'>Silk Tapestry Depicting the story of Leila and Majnun</p></div></div></a></div>");
+  
+    gallery.append("<div class='gallery-item qatar-mihr-ali qatar-all'><a href='https://minicomp.github.io/wax/qatar/obj9/'><div class='hovereffect'><img class='img-responsive gallery-thumb' src='/wax/iiif/images/qatar/obj9/full/250,/0/default.jpg'><div class='overlay'><p class='info'>Portrait of Fath 'Ali Shah</p></div></div></a></div>");
+  
+
+  
+   container.prepend('<div id="qatar-facet-buttons"></div><br>');
+
+    var buttonDiv = $('#qatar-facet-buttons');
+    var facets = Array.from(new Set(['qatar-al-hajj-hafiz-muhammad-nuri', 'qatar-unknown', 'qatar-unknown', 'qatar-unknown', 'qatar-unknown', 'qatar-unknown', 'qatar-unknown', 'qatar-unknown', 'qatar-unknown', 'qatar-unknown', 'qatar-mihr-ali']));
+
+    // create buttons
+    buttonDiv.append("<button class='btn qatar-facet btn-outline-secondary' data-filter='qatar-all'>show all</button>");
+    for (i in facets) {
+      buttonDiv.append("&nbsp;&nbsp;&nbsp;<button class='btn qatar-facet btn-outline-secondary' data-filter='" + facets[i]+ "'>" + facets[i].replace('qatar-', '') + "</button>");
+    }
+
+    // filter on button click
+    $(document).ready(function(){
+      // clicking button with class "category-button"
+      $(".qatar-facet").click(function(){
+        // get the data-filter value of the button
+        var filterValue = $(this).attr('data-filter');
+        // show all items
+        if(filterValue == "qatar-all") {
+          $(".qatar-all").show("slow");
+        }
+        else {
+          // hide all items
+          $(".qatar-all").hide("slow");
+          // and then, show only items with selected data-filter value
+          $('.'+filterValue).show("slow");
+        }
+      });
+    });
+  
+</script>
+
+<p>or <code class="highlighter-rouge">{% include gallery.html collection='book-of-horses' %}</code></p>
+
+<p><strong>Result</strong>:</p>
+
+<div id="wax-gallery-book-of-horses" class="wax-gallery"></div>
+
+<script type="text/javascript">
+  // create items
+  var container = $('#wax-gallery-book-of-horses');
+  container.prepend("<div id='book-of-horses-gallery' class='gallery-container'></div>");
+  var gallery = $('#book-of-horses-gallery');
+  
+    gallery.append("<div class='gallery-item book-of-horses- book-of-horses-all'><a href='https://minicomp.github.io/wax/book-of-horses/'><div class='hovereffect'><img class='img-responsive gallery-thumb' src='/wax/iiif/images/book-of-horses/00/full/250,/0/default.jpg'><div class='overlay'><p class='info'>The Book of Horses (فَرَس نامه [رسالة في الخيول)</p></div></div></a></div>");
+  
+
+  
+</script>
+
+<h2 id="search">Search</h2>
+
+<p>Search adds a search box with dynamic, client-side search powered by ElasticLunr.js and jQuery. It loads two files <code class="highlighter-rouge">js/lunr-index.json</code> and <code class="highlighter-rouge">js/lunr-ui.js</code>, the first of which can be generated with <a href="https://github.com/minicomp/wax_tasks/">wax_tasks</a>, and the second which needs to be created or modified to meet the needs of the collection.</p>
+
+<p><code class="highlighter-rouge">{% include search.html %}</code></p>
+
+<p><strong>Result</strong>:</p>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/elasticlunr/0.9.6/elasticlunr.min.js"></script>
+
+<script src="/wax/js/lunr-ui.js"></script>
+
+<div class="search-block">
+  <div class="input-group">
+    <input type="text" class="form-control" id="search" name="x" placeholder="Search... " />
+    <!-- <span class="input-group-btn">
+        <button class="btn btn-default" type="button">🔎</button>
+    </span> -->
+  </div>
+  <div id="results"></div>
+</div>
+
+<h2 id="leaflet-iiif-viewer">Leaflet IIIF Viewer</h2>
+
+<p><code class="highlighter-rouge">{% include iiif/leaflet-viewer.html manifest='/iiif/qatar/obj1/manifest.json' %}</code></p>
+
+<h2 id="mirador-iiif-viewer">Mirador IIIF Viewer</h2>
+
+<p><code class="highlighter-rouge">{% include iiif/mirador-viewer.html manifest='/iiif/book-of-horses/manifest.json' %}</code></p>
+
+
+      
+
+    </div>
+
+  </body>
+
+  <script type="text/javascript" src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+</html>
